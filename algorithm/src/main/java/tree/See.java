@@ -1,5 +1,7 @@
 package tree;
 
+import lombok.val;
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
@@ -142,6 +144,7 @@ public class See {
     }
 
     private static void buildTree(int val) {
+        System.out.println("非递归方式生成二叉树");
         if (root != null) {
             TreeNode node = root, parent = root;
             while (node != null) {
@@ -156,6 +159,21 @@ public class See {
             }
         } else {
             root = new TreeNode(val);
+        }
+    }
+
+    //递归生成二叉树
+    private static void buildTree2(TreeNode node, int val) {
+        if (node == null) {
+            root = node = new TreeNode(val);
+        }
+        if (node.val > val) {
+            if (node.left == null) node.left = new TreeNode(val);
+            buildTree2(node.left, val);
+        }
+        if (node.val < val) {
+            if (node.right == null) node.right = new TreeNode(val);
+            buildTree2(node.right, val);
         }
     }
 
