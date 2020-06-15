@@ -29,6 +29,7 @@
         <module>java-proxy</module>
         <module>java-collection</module>
         <module>algorithm</module>
+        <module>mycat</module>
     </modules>
 
     <parent>
